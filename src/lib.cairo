@@ -9,7 +9,7 @@ pub trait ICounter<TContractState> {
 mod Counter {
     #[storage]
     struct Storage {
-        counter: u128, 
+        counter: felt252, 
     }
 
     #[abi(embed_v0)]
@@ -22,7 +22,7 @@ mod Counter {
             let count = self.counter.read();
             self.counter.write(count - 1);
         }
-        fn get_curr_count(self: @ContractState) -> u128 {
+        fn get_curr_count(self: @ContractState) -> felt252 {
             self.counter.read()
         }
     }
